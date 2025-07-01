@@ -1,1 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudhakar Raju - Lead Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .section-title {
+            border-bottom: 3px solid #4f46e5; /* indigo-600 */
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        /* --- Styles for Expandable Experience Cards --- */
+        .experience-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 5px solid #4f46e5; /* indigo-600 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease;
+        }
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .detailed-summary {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+        }
+        .experience-card:hover .detailed-summary {
+            max-height: 500px; /* Adjust if content is taller */
+            opacity: 1;
+            margin-top: 1rem;
+        }
+        /* --- Styles for Award Modal --- */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+             transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column / Sidebar -->
+            <aside class="lg:col-span-1">
+                <div class="bg-white p-6 rounded-2xl shadow-lg sticky top-8">
+                    <div class="flex flex-col items-center text-center">
+                        <!-- 
+                            USER ACTION REQUIRED: The image link below is a placeholder and may be broken. 
+                            1. Upload your profile photo to a public image host like imgur.com or imgbb.com.
+                            2. Get the "Direct Link" (it should end in .jpg, .png, etc.).
+                            3. Replace the src="..." value below with your new link.
+                        -->
+                        <img src="https://raw.githubusercontent.com/sudhakar-r08/sudhakar-r08.github.io/be2c7722582d436f3550a88a1cd4b80475e2c93a/photo.jpg" alt="Sudhakar Raju" class="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-md mb-4 object-cover">
+                        <h1 class="text-3xl font-bold text-slate-900">Sudhakar Raju</h1>
+                        <p class="text-indigo-600 font-medium mt-1">Lead Software Engineer</p>
+                    </div>
+
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Contact</h2>
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center">
+                                <i class="fas fa-phone w-5 mr-3 text-indigo-500"></i>
+                                <span>09629343508</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope w-5 mr-3 text-indigo-500"></i>
+                                <a href="mailto:sudhakar.r08@gmail.com" class="hover:text-indigo-700 break-all">sudhakar.r08@gmail.com</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fab fa-linkedin w-5 mr-3 text-indigo-500"></i>
+                                <a href="https://www.linkedin.com/in/sudhakar-raju" target="_blank" class="hover:text-indigo-700 break-all">linkedin.com/in/sudhakar-raju</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fab fa-github w-5 mr-3 text-indigo-500"></i>
+                                <a href="https://github.com/sudhakar-r08" target="_blank" class="hover:text-indigo-700 break-all">github.com/sudhakar-r08</a>
+                            </li>
+                             <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt w-5 mr-3 text-indigo-500"></i>
+                                <span>Chennai, Tamil Nadu, India</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Top Skills</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Internet of Things (IoT)</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Android Development</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Technical Leadership</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Kotlin & Java</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">WebRTC & VoIP</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">TensorFlow Lite</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Languages</h2>
+                        <ul class="space-y-2">
+                            <li><span class="font-medium text-slate-800">Tamil</span> (Native)</li>
+                            <li><span class="font-medium text-slate-800">English</span> (Professional)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Certifications & Awards</h2>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-award w-4 mr-3 mt-1 text-indigo-500"></i>
+                                <!-- 
+                                    USER ACTION REQUIRED: The image link in the onclick function below is a placeholder and may be broken. 
+                                    1. Upload your award certificate to a public image host.
+                                    2. Get the "Direct Link".
+                                    3. Replace the placeholder URL inside openAwardModal('...') with your new link.
+                                -->
+                                <span onclick="openAwardModal('https://raw.githubusercontent.com/sudhakar-r08/sudhakar-r08.github.io/be2c7722582d436f3550a88a1cd4b80475e2c93a/award.jpg')" class="cursor-pointer hover:underline text-indigo-600 font-semibold">IMPACT AWARD</span>
+                                <span class="ml-1 text-slate-600">- Going Above & Beyond</span>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-award w-4 mr-3 mt-1 text-indigo-500"></i>
+                                <span>Best of Next '23</span>
+                            </li>
+                            <li class="flex items-start">
+                               <i class="fas fa-certificate w-4 mr-3 mt-1 text-indigo-500"></i>
+                                <span>Python (Basic) Certificate</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column / Main Content -->
+            <main class="lg:col-span-2 space-y-8">
+                
+                <!-- Summary Section -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-slate-900 section-title">
+                            <i class="fas fa-user-circle mr-2 text-indigo-500"></i>About Me
+                        </h2>
+                    </div>
+                    <p id="about-me-text" class="text-slate-600 leading-relaxed">
+                        With 10+ years of experience in Android development, I specialize in building scalable, high-performance mobile applications that integrate cutting-edge technologies like VoIP, WebRTC, IoT, Socket.IO, TensorFlow Lite, and NDK. I believe in efficient problem-solving, scalable architecture, and user-centric design. Whether it's real-time video streaming, AI-driven applications, or seamless IoT connectivity, I ensure that every project I work on is robust, optimized, and future-ready.
+                    </p>
+                </section>
+
+                <!-- Experience Section -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-slate-900 section-title mb-6">
+                        <i class="fas fa-briefcase mr-2 text-indigo-500"></i>Work Experience
+                    </h2>
+                    <div class="space-y-8">
+                        
+                        <!-- Experience Card 1 -->
+                        <div class="experience-card">
+                            <h3 class="text-lg font-semibold text-slate-800">Lead Android Developer SDE-3</h3>
+                            <p class="font-medium text-indigo-600">Ayla Networks</p>
+                            <p class="text-sm text-slate-500 mb-2">Nov 2022 - Present | Bengaluru, KA</p>
+                            <p class="text-slate-600 short-summary">Lead a team pioneering IoT solutions, architecting scalable Android apps with Kotlin and optimizing device connectivity.</p>
+                            <div class="detailed-summary">
+                                <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                    <li>Guide a team in pioneering cutting-edge IoT solutions.</li>
+                                    <li>Architect and develop robust, scalable mobile applications using Kotlin.</li>
+                                    <li>Optimize IoT device connectivity and data management.</li>
+                                    <li>Translate customer needs into tangible technical solutions.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Experience Card 2 -->
+                        <div class="experience-card">
+                            <h3 class="text-lg font-semibold text-slate-800">Senior Software Engineer</h3>
+                            <p class="font-medium text-indigo-600">Vectone</p>
+                            <p class="text-sm text-slate-500 mb-2">Feb 2021 - Nov 2022 | India</p>
+                            <p class="text-slate-600 short-summary">Led a team of 10+ developers building high-performance chat and video apps with WebRTC and AI features.</p>
+                             <div class="detailed-summary">
+                                <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                    <li>Led a team of 10+ developers in engineering high-performance chat and video apps (XMPP, Socket.IO, WebRTC).</li>
+                                    <li>Developed an AI-powered virtual background feature using TensorFlow and ML Kit.</li>
+                                    <li>Established coding standards and scalable architecture patterns.</li>
+                                    <li>Built a real-time collaborative whiteboard to enhance user engagement.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience Card 3 -->
+                         <div class="experience-card">
+                            <h3 class="text-lg font-semibold text-slate-800">Senior Software Engineer</h3>
+                            <p class="font-medium text-indigo-600">Infitech Solutions Ltd</p>
+                            <p class="text-sm text-slate-500 mb-2">Nov 2018 - Jan 2021 | Chennai, TN</p>
+                            <p class="text-slate-600 short-summary">Led end-to-end development of complex projects including facial recognition, ALPR, and IoT solutions.</p>
+                             <div class="detailed-summary">
+                                <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                    <li>Led the full project lifecycle for facial recognition, ALPR, indoor mapping, and IoT solutions.</li>
+                                    <li>Managed requirements gathering, wireframing, UX design, and database development.</li>
+                                    <li>Maintained strict coding standards for high-quality code.</li>
+                                    <li>Collaborated with cross-functional teams to deliver exceptional user experiences.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Experience Card 4 -->
+                        <div class="experience-card">
+                           <h3 class="text-lg font-semibold text-slate-800">Software Engineer</h3>
+                           <p class="font-medium text-indigo-600">Anubavam LLC</p>
+                           <p class="text-sm text-slate-500 mb-2">Sep 2016 - Dec 2017 | Chennai, TN</p>
+                           <p class="text-slate-600 short-summary">Developed a cutting-edge LMS platform and a healthcare product for low-network areas.</p>
+                            <div class="detailed-summary">
+                               <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                   <li>Collaborated to develop an LMS platform from concept to deployment.</li>
+                                   <li>Redesigned and optimized an application's architecture for scalability.</li>
+                                   <li>Developed features for a healthcare product tailored to low-network environments.</li>
+                               </ul>
+                           </div>
+                       </div>
+
+                       <!-- Experience Card 5 -->
+                       <div class="experience-card">
+                          <h3 class="text-lg font-semibold text-slate-800">Software Development Engineer</h3>
+                          <p class="font-medium text-indigo-600">Gingerbox Mobility pvt ltd</p>
+                          <p class="text-sm text-slate-500 mb-2">Feb 2016 - Aug 2016 | Chennai</p>
+                          <p class="text-slate-600 short-summary">Led a team developing IoT solutions, including a meditation app and a live vehicle tracking system.</p>
+                           <div class="detailed-summary">
+                              <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                  <li>Led a team of engineers in developing innovative IoT solutions.</li>
+                                  <li>Developed a meditation app with offline support using SMS and GCM.</li>
+                                  <li>Led end-to-end development of a live vehicle tracking application.</li>
+                                  <li>Improved code quality through best practices and code reviews.</li>
+                              </ul>
+                          </div>
+                      </div>
+
+                      <!-- Experience Card 6 -->
+                      <div class="experience-card">
+                         <h3 class="text-lg font-semibold text-slate-800">Software Engineer</h3>
+                         <p class="font-medium text-indigo-600">Valley Point Technologies</p>
+                         <p class="text-sm text-slate-500 mb-2">Dec 2013 - Jan 2016 | Chennai</p>
+                         <p class="text-slate-600 short-summary">Developed Android, cross-platform, and web applications with a focus on APIs and accessibility.</p>
+                          <div class="detailed-summary">
+                             <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                 <li>Developed skills across Android, cross-platform, and Microsoft mobile platforms.</li>
+                                 <li>Created engaging user interfaces using HTML, CSS, and JavaScript.</li>
+                                 <li>Developed robust APIs to facilitate data exchange between applications.</li>
+                                 <li>Leveraged .NET to implement text-to-speech functionality.</li>
+                             </ul>
+                         </div>
+                     </div>
+
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-slate-900 section-title mb-4">
+                        <i class="fas fa-graduation-cap mr-2 text-indigo-500"></i>Education
+                    </h2>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800">Master of Computer Applications (MCA)</h3>
+                        <p class="font-medium text-indigo-600">Anna University</p>
+                        <p class="text-sm text-slate-500">Oct 2010 - Jul 2013</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Award Modal -->
+    <div id="award-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 hidden bg-black bg-opacity-75 opacity-0">
+        <div class="modal-content bg-white p-2 sm:p-4 rounded-lg max-w-3xl w-full relative transform scale-95">
+            <button onclick="closeAwardModal()" class="absolute -top-3 -right-3 bg-indigo-600 hover:bg-indigo-800 text-white rounded-full h-8 w-8 flex items-center justify-center shadow-lg focus:outline-none">&times;</button>
+            <img id="award-modal-image" src="" alt="Award Certificate" class="w-full h-auto rounded-md">
+        </div>
+    </div>
+
+    <script>
+        const awardModal = document.getElementById('award-modal');
+        const awardModalContent = awardModal.querySelector('.modal-content');
+        const awardModalImage = document.getElementById('award-modal-image');
+
+        function openAwardModal(imageUrl) {
+            awardModalImage.src = imageUrl;
+            awardModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            setTimeout(() => {
+                awardModal.classList.remove('opacity-0');
+                awardModalContent.classList.remove('scale-95');
+            }, 10); // Start transition after display is set
+        }
+
+        function closeAwardModal() {
+            awardModal.classList.add('opacity-0');
+            awardModalContent.classList.add('scale-95');
+            setTimeout(() => {
+                awardModal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+                awardModalImage.src = ''; // Clear src after transition
+            }, 250);
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !awardModal.classList.contains('hidden')) {
+                closeAwardModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
 

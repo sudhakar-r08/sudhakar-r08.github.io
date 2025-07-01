@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Default Theme: Violet */
-            --color-primary-50: #f5f3ff;
-            --color-primary-100: #ede9fe;
-            --color-primary-500: #8b5cf6;
-            --color-primary-600: #7c3aed;
-            --color-primary-800: #5b21b6;
-            --color-accent: #7c3aed;
+            /* Default Theme: Green */
+            --color-primary-50: #f3f6e9;
+            --color-primary-100: #e7edc9;
+            --color-primary-500: #1C8806;
+            --color-primary-600: #0F5F1A;
+            --color-primary-800: #09331B;
+            --color-accent: #DB6654;
         }
 
         body {
@@ -111,7 +111,7 @@
                             </li>
                              <li class="flex items-center">
                                 <i class="fas fa-map-marker-alt w-5 mr-3 theme-text-500"></i>
-                                <span>Chennai, Tamil Nadu, India</span>
+                                <span>Bengaluru, Karnataka, India</span>
                             </li>
                         </ul>
                     </div>
@@ -424,9 +424,9 @@
             localStorage.setItem('selectedTheme', themeName);
         }
 
-        // On page load, apply the saved theme, defaulting to violet
+        // On page load, apply the saved theme, defaulting to green
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('selectedTheme') || 'violet';
+            const savedTheme = localStorage.getItem('selectedTheme') || 'green';
             changeTheme(savedTheme);
         });
 

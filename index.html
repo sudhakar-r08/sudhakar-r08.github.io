@@ -10,22 +10,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Default Theme: Violet */
+            --color-primary-50: #f5f3ff;
+            --color-primary-100: #ede9fe;
+            --color-primary-500: #8b5cf6;
+            --color-primary-600: #7c3aed;
+            --color-primary-800: #5b21b6;
+            --color-accent: #7c3aed;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            background-color: var(--color-primary-50);
         }
         .section-title {
-            border-bottom: 3px solid #4f46e5; /* indigo-600 */
+            border-bottom: 3px solid var(--color-accent);
             padding-bottom: 0.5rem;
             display: inline-block;
         }
         
-        /* --- Styles for Expandable Experience Cards --- */
         .experience-card {
             background: white;
             padding: 1.5rem;
             border-radius: 0.75rem;
-            border-left: 5px solid #4f46e5; /* indigo-600 */
+            border-left: 5px solid var(--color-accent);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transition: all 0.3s ease;
         }
@@ -40,17 +49,29 @@
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
         }
         .experience-card:hover .detailed-summary {
-            max-height: 500px; /* Adjust if content is taller */
+            max-height: 500px;
             opacity: 1;
             margin-top: 1rem;
         }
-        /* --- Styles for Award Modal --- */
         .modal {
             transition: opacity 0.25s ease;
         }
         .modal-content {
              transition: transform 0.25s ease;
         }
+
+        /* Theme-aware colors */
+        .theme-bg-100 { background-color: var(--color-primary-100); }
+        .theme-text-500 { color: var(--color-primary-500); }
+        .theme-text-600 { color: var(--color-primary-600); }
+        .theme-text-700:hover { color: var(--color-primary-800); }
+        .theme-text-800 { color: var(--color-primary-800); }
+        .theme-border-500 { border-color: var(--color-primary-500); }
+        .theme-award-link { color: var(--color-primary-600); }
+        .theme-award-link:hover { text-decoration: underline; }
+        .theme-modal-button { background-color: var(--color-primary-600); }
+        .theme-modal-button:hover { background-color: var(--color-primary-800); }
+
     </style>
 </head>
 <body class="text-slate-700">
@@ -64,38 +85,32 @@
             <aside class="lg:col-span-1">
                 <div class="bg-white p-6 rounded-2xl shadow-lg sticky top-8">
                     <div class="flex flex-col items-center text-center">
-                        <!-- 
-                            USER ACTION REQUIRED: The image link below is a placeholder and may be broken. 
-                            1. Upload your profile photo to a public image host like imgur.com or imgbb.com.
-                            2. Get the "Direct Link" (it should end in .jpg, .png, etc.).
-                            3. Replace the src="..." value below with your new link.
-                        -->
-                        <img src="https://raw.githubusercontent.com/sudhakar-r08/sudhakar-r08.github.io/be2c7722582d436f3550a88a1cd4b80475e2c93a/photo.jpg" alt="Sudhakar Raju" class="w-32 h-32 rounded-full border-4 border-indigo-500 shadow-md mb-4 object-cover">
+                        <img src="photo.jpg" alt="Sudhakar Raju" class="w-32 h-32 rounded-full border-4 theme-border-500 shadow-md mb-4 object-cover">
                         <h1 class="text-3xl font-bold text-slate-900">Sudhakar Raju</h1>
-                        <p class="text-indigo-600 font-medium mt-1">Lead Software Engineer</p>
+                        <p class="theme-text-600 font-medium mt-1">Lead Software Engineer</p>
                     </div>
 
                     <div class="mt-8">
                         <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Contact</h2>
                         <ul class="space-y-3 text-slate-600">
                             <li class="flex items-center">
-                                <i class="fas fa-phone w-5 mr-3 text-indigo-500"></i>
+                                <i class="fas fa-phone w-5 mr-3 theme-text-500"></i>
                                 <span>09629343508</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-envelope w-5 mr-3 text-indigo-500"></i>
-                                <a href="mailto:sudhakar.r08@gmail.com" class="hover:text-indigo-700 break-all">sudhakar.r08@gmail.com</a>
+                                <i class="fas fa-envelope w-5 mr-3 theme-text-500"></i>
+                                <a href="mailto:sudhakar.r08@gmail.com" class="theme-text-700 break-all">sudhakar.r08@gmail.com</a>
                             </li>
                             <li class="flex items-center">
-                                <i class="fab fa-linkedin w-5 mr-3 text-indigo-500"></i>
-                                <a href="https://www.linkedin.com/in/sudhakar-raju" target="_blank" class="hover:text-indigo-700 break-all">linkedin.com/in/sudhakar-raju</a>
+                                <i class="fab fa-linkedin w-5 mr-3 theme-text-500"></i>
+                                <a href="https://www.linkedin.com/in/sudhakar-raju" target="_blank" class="theme-text-700 break-all">linkedin.com/in/sudhakar-raju</a>
                             </li>
                             <li class="flex items-center">
-                                <i class="fab fa-github w-5 mr-3 text-indigo-500"></i>
-                                <a href="https://github.com/sudhakar-r08" target="_blank" class="hover:text-indigo-700 break-all">github.com/sudhakar-r08</a>
+                                <i class="fab fa-github w-5 mr-3 theme-text-500"></i>
+                                <a href="https://github.com/sudhakar-r08" target="_blank" class="theme-text-700 break-all">github.com/sudhakar-r08</a>
                             </li>
                              <li class="flex items-center">
-                                <i class="fas fa-map-marker-alt w-5 mr-3 text-indigo-500"></i>
+                                <i class="fas fa-map-marker-alt w-5 mr-3 theme-text-500"></i>
                                 <span>Chennai, Tamil Nadu, India</span>
                             </li>
                         </ul>
@@ -104,12 +119,27 @@
                     <div class="mt-8">
                         <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Top Skills</h2>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Internet of Things (IoT)</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Android Development</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Technical Leadership</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Kotlin & Java</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">WebRTC & VoIP</span>
-                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">TensorFlow Lite</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Android Development</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Java</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Kotlin</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Jetpack Compose</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Kotlin Multiplatform (KMP)</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Compose Multiplatform</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">WebRTC</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Socket.IO</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">TensorFlow</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">IoT</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Technical Leadership</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Mentoring</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">MVVM</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">MVI</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Clean Architecture</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">NDK</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">VoIP</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Node.js</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Indoor Pathfinding (BLE)</span>
+                            <span class="theme-bg-100 theme-text-800 text-sm font-medium px-3 py-1 rounded-full">Facial Recognition</span>
                         </div>
                     </div>
 
@@ -125,26 +155,34 @@
                         <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Certifications & Awards</h2>
                         <ul class="space-y-2">
                             <li class="flex items-start">
-                                <i class="fas fa-award w-4 mr-3 mt-1 text-indigo-500"></i>
-                                <!-- 
-                                    USER ACTION REQUIRED: The image link in the onclick function below is a placeholder and may be broken. 
-                                    1. Upload your award certificate to a public image host.
-                                    2. Get the "Direct Link".
-                                    3. Replace the placeholder URL inside openAwardModal('...') with your new link.
-                                -->
-                                <span onclick="openAwardModal('https://raw.githubusercontent.com/sudhakar-r08/sudhakar-r08.github.io/be2c7722582d436f3550a88a1cd4b80475e2c93a/award.jpg')" class="cursor-pointer hover:underline text-indigo-600 font-semibold">IMPACT AWARD</span>
+                                <i class="fas fa-award w-4 mr-3 mt-1 theme-text-500"></i>
+                                <span onclick="openAwardModal('award.jpg')" class="cursor-pointer theme-award-link font-semibold">IMPACT AWARD</span>
                                 <span class="ml-1 text-slate-600">- Going Above & Beyond</span>
                             </li>
                              <li class="flex items-start">
-                                <i class="fas fa-award w-4 mr-3 mt-1 text-indigo-500"></i>
+                                <i class="fas fa-award w-4 mr-3 mt-1 theme-text-500"></i>
                                 <span>Best of Next '23</span>
                             </li>
                             <li class="flex items-start">
-                               <i class="fas fa-certificate w-4 mr-3 mt-1 text-indigo-500"></i>
+                               <i class="fas fa-certificate w-4 mr-3 mt-1 theme-text-500"></i>
                                 <span>Python (Basic) Certificate</span>
                             </li>
                         </ul>
                     </div>
+                    
+                    <!-- Theme Switcher -->
+                    <div class="mt-8">
+                        <h2 class="text-xl font-semibold text-slate-800 border-b pb-2 mb-4">Change Theme</h2>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="changeTheme('violet')" class="w-8 h-8 rounded-full bg-[#7c3aed] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7c3aed]" title="Violet"></button>
+                            <button onclick="changeTheme('green')" class="w-8 h-8 rounded-full bg-[#0F5F1A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F5F1A]" title="Green"></button>
+                            <button onclick="changeTheme('coral')" class="w-8 h-8 rounded-full bg-[#DB6654] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#DB6654]" title="Coral"></button>
+                            <button onclick="changeTheme('ocean')" class="w-8 h-8 rounded-full bg-[#1E91D6] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E91D6]" title="Ocean"></button>
+                            <button onclick="changeTheme('crimson')" class="w-8 h-8 rounded-full bg-[#A31621] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A31621]" title="Crimson"></button>
+                            <button onclick="changeTheme('royal')" class="w-8 h-8 rounded-full bg-[#49355A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#49355A]" title="Royal"></button>
+                        </div>
+                    </div>
+
                 </div>
             </aside>
 
@@ -155,7 +193,7 @@
                 <section class="bg-white p-6 rounded-2xl shadow-lg">
                     <div class="flex justify-between items-start mb-4">
                         <h2 class="text-2xl font-bold text-slate-900 section-title">
-                            <i class="fas fa-user-circle mr-2 text-indigo-500"></i>About Me
+                            <i class="fas fa-user-circle mr-2 theme-text-500"></i>About Me
                         </h2>
                     </div>
                     <p id="about-me-text" class="text-slate-600 leading-relaxed">
@@ -166,15 +204,15 @@
                 <!-- Experience Section -->
                 <section class="bg-white p-6 rounded-2xl shadow-lg">
                     <h2 class="text-2xl font-bold text-slate-900 section-title mb-6">
-                        <i class="fas fa-briefcase mr-2 text-indigo-500"></i>Work Experience
+                        <i class="fas fa-briefcase mr-2 theme-text-500"></i>Work Experience
                     </h2>
                     <div class="space-y-8">
                         
                         <!-- Experience Card 1 -->
                         <div class="experience-card">
                             <h3 class="text-lg font-semibold text-slate-800">Lead Android Developer SDE-3</h3>
-                            <p class="font-medium text-indigo-600">Ayla Networks</p>
-                            <p class="text-sm text-slate-500 mb-2">Nov 2022 - Present | Bengaluru, KA</p>
+                            <p class="font-medium theme-text-600">Ayla Networks</p>
+                            <p class="text-sm text-slate-500 mb-2">Nov 2022 - Present | Bengaluru, Karnataka, India</p>
                             <p class="text-slate-600 short-summary">Lead a team pioneering IoT solutions, architecting scalable Android apps with Kotlin and optimizing device connectivity.</p>
                             <div class="detailed-summary">
                                 <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -189,8 +227,8 @@
                         <!-- Experience Card 2 -->
                         <div class="experience-card">
                             <h3 class="text-lg font-semibold text-slate-800">Senior Software Engineer</h3>
-                            <p class="font-medium text-indigo-600">Vectone</p>
-                            <p class="text-sm text-slate-500 mb-2">Feb 2021 - Nov 2022 | India</p>
+                            <p class="font-medium theme-text-600">Vectone</p>
+                            <p class="text-sm text-slate-500 mb-2">Feb 2021 - Nov 2022 | Chennai, Tamil Nadu, India</p>
                             <p class="text-slate-600 short-summary">Led a team of 10+ developers building high-performance chat and video apps with WebRTC and AI features.</p>
                              <div class="detailed-summary">
                                 <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -205,8 +243,8 @@
                         <!-- Experience Card 3 -->
                          <div class="experience-card">
                             <h3 class="text-lg font-semibold text-slate-800">Senior Software Engineer</h3>
-                            <p class="font-medium text-indigo-600">Infitech Solutions Ltd</p>
-                            <p class="text-sm text-slate-500 mb-2">Nov 2018 - Jan 2021 | Chennai, TN</p>
+                            <p class="font-medium theme-text-600">Infitech Solutions Ltd</p>
+                            <p class="text-sm text-slate-500 mb-2">Nov 2018 - Jan 2021 | Chennai, Tamil Nadu, India</p>
                             <p class="text-slate-600 short-summary">Led end-to-end development of complex projects including facial recognition, ALPR, and IoT solutions.</p>
                              <div class="detailed-summary">
                                 <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -221,8 +259,8 @@
                         <!-- Experience Card 4 -->
                         <div class="experience-card">
                            <h3 class="text-lg font-semibold text-slate-800">Software Engineer</h3>
-                           <p class="font-medium text-indigo-600">Anubavam LLC</p>
-                           <p class="text-sm text-slate-500 mb-2">Sep 2016 - Dec 2017 | Chennai, TN</p>
+                           <p class="font-medium theme-text-600">Anubavam LLC</p>
+                           <p class="text-sm text-slate-500 mb-2">Sep 2016 - Dec 2017 | Chennai, Tamil Nadu, India</p>
                            <p class="text-slate-600 short-summary">Developed a cutting-edge LMS platform and a healthcare product for low-network areas.</p>
                             <div class="detailed-summary">
                                <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -236,8 +274,8 @@
                        <!-- Experience Card 5 -->
                        <div class="experience-card">
                           <h3 class="text-lg font-semibold text-slate-800">Software Development Engineer</h3>
-                          <p class="font-medium text-indigo-600">Gingerbox Mobility pvt ltd</p>
-                          <p class="text-sm text-slate-500 mb-2">Feb 2016 - Aug 2016 | Chennai</p>
+                          <p class="font-medium theme-text-600">Gingerbox Mobility pvt ltd</p>
+                          <p class="text-sm text-slate-500 mb-2">Feb 2016 - Aug 2016 | Chennai, Tamil Nadu, India</p>
                           <p class="text-slate-600 short-summary">Led a team developing IoT solutions, including a meditation app and a live vehicle tracking system.</p>
                            <div class="detailed-summary">
                               <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -252,8 +290,8 @@
                       <!-- Experience Card 6 -->
                       <div class="experience-card">
                          <h3 class="text-lg font-semibold text-slate-800">Software Engineer</h3>
-                         <p class="font-medium text-indigo-600">Valley Point Technologies</p>
-                         <p class="text-sm text-slate-500 mb-2">Dec 2013 - Jan 2016 | Chennai</p>
+                         <p class="font-medium theme-text-600">Valley Point Technologies</p>
+                         <p class="text-sm text-slate-500 mb-2">Dec 2013 - Jan 2016 | Chennai, Tamil Nadu, India</p>
                          <p class="text-slate-600 short-summary">Developed Android, cross-platform, and web applications with a focus on APIs and accessibility.</p>
                           <div class="detailed-summary">
                              <ul class="list-disc list-inside space-y-2 text-slate-600">
@@ -271,11 +309,11 @@
                 <!-- Education Section -->
                 <section class="bg-white p-6 rounded-2xl shadow-lg">
                     <h2 class="text-2xl font-bold text-slate-900 section-title mb-4">
-                        <i class="fas fa-graduation-cap mr-2 text-indigo-500"></i>Education
+                        <i class="fas fa-graduation-cap mr-2 theme-text-500"></i>Education
                     </h2>
                     <div>
                         <h3 class="text-lg font-semibold text-slate-800">Master of Computer Applications (MCA)</h3>
-                        <p class="font-medium text-indigo-600">Anna University</p>
+                        <p class="font-medium theme-text-600">Anna University</p>
                         <p class="text-sm text-slate-500">Oct 2010 - Jul 2013</p>
                     </div>
                 </section>
@@ -286,7 +324,7 @@
     <!-- Award Modal -->
     <div id="award-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 hidden bg-black bg-opacity-75 opacity-0">
         <div class="modal-content bg-white p-2 sm:p-4 rounded-lg max-w-3xl w-full relative transform scale-95">
-            <button onclick="closeAwardModal()" class="absolute -top-3 -right-3 bg-indigo-600 hover:bg-indigo-800 text-white rounded-full h-8 w-8 flex items-center justify-center shadow-lg focus:outline-none">&times;</button>
+            <button onclick="closeAwardModal()" class="absolute -top-3 -right-3 theme-modal-button text-white rounded-full h-8 w-8 flex items-center justify-center shadow-lg focus:outline-none">&times;</button>
             <img id="award-modal-image" src="" alt="Award Certificate" class="w-full h-auto rounded-md">
         </div>
     </div>
@@ -303,7 +341,7 @@
             setTimeout(() => {
                 awardModal.classList.remove('opacity-0');
                 awardModalContent.classList.remove('scale-95');
-            }, 10); // Start transition after display is set
+            }, 10);
         }
 
         function closeAwardModal() {
@@ -312,18 +350,87 @@
             setTimeout(() => {
                 awardModal.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
-                awardModalImage.src = ''; // Clear src after transition
+                awardModalImage.src = '';
             }, 250);
         }
 
-        // Close modal with Escape key
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && !awardModal.classList.contains('hidden')) {
                 closeAwardModal();
             }
         });
+
+        // --- Theme Switcher Logic ---
+        const themes = {
+            violet: {
+                '--color-primary-50': '#f5f3ff',
+                '--color-primary-100': '#ede9fe',
+                '--color-primary-500': '#8b5cf6',
+                '--color-primary-600': '#7c3aed',
+                '--color-primary-800': '#5b21b6',
+                '--color-accent': '#7c3aed',
+            },
+            green: {
+                '--color-primary-50': '#f3f6e9',
+                '--color-primary-100': '#e7edc9',
+                '--color-primary-500': '#1C8806',
+                '--color-primary-600': '#0F5F1A',
+                '--color-primary-800': '#09331B',
+                '--color-accent': '#DB6654',
+            },
+            coral: {
+                '--color-primary-50': '#fef6f5',
+                '--color-primary-100': '#fce9e6',
+                '--color-primary-500': '#f4715c',
+                '--color-primary-600': '#DB6654',
+                '--color-primary-800': '#b44a3a',
+                '--color-accent': '#0F5F1A',
+            },
+            ocean: {
+                '--color-primary-50': '#eff8ff',
+                '--color-primary-100': '#e2f0ff',
+                '--color-primary-500': '#1E91D6',
+                '--color-primary-600': '#1E91D6',
+                '--color-primary-800': '#1565a1',
+                '--color-accent': '#49355A',
+            },
+            crimson: {
+                '--color-primary-50': '#fdf2f2',
+                '--color-primary-100': '#fde6e6',
+                '--color-primary-500': '#A31621',
+                '--color-primary-600': '#A31621',
+                '--color-primary-800': '#7a1019',
+                '--color-accent': '#E2AE12',
+            },
+            royal: {
+                '--color-primary-50': '#f4f3f5',
+                '--color-primary-100': '#e9e6ed',
+                '--color-primary-500': '#49355A',
+                '--color-primary-600': '#49355A',
+                '--color-primary-800': '#31233d',
+                '--color-accent': '#E2AE12',
+            }
+        };
+
+        function changeTheme(themeName) {
+            const selectedTheme = themes[themeName];
+            if (!selectedTheme) return;
+
+            const root = document.documentElement;
+            for (const [key, value] of Object.entries(selectedTheme)) {
+                root.style.setProperty(key, value);
+            }
+            
+            localStorage.setItem('selectedTheme', themeName);
+        }
+
+        // On page load, apply the saved theme, defaulting to violet
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('selectedTheme') || 'violet';
+            changeTheme(savedTheme);
+        });
+
     </script>
 
 </body>
 </html>
-
